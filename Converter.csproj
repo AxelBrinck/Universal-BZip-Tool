@@ -6,4 +6,8 @@
     <RootNamespace>Converter</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="./libs/decoder/decoder.csproj" />
+  </ItemGroup>
+
 </Project>
