@@ -30,7 +30,7 @@ namespace Program
 
                     using (FileStream output = File.Create(newFileName))
                     {
-                        using (DeflateStream  bzis = new DeflateStream (input, CompressionMode.Decompress))
+                        using (DeflateStream bzis = new DeflateStream (input, CompressionMode.Decompress))
                         {
                             bzis.CopyTo(output);
                             Console.WriteLine("Decompressed: {0}", file);
