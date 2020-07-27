@@ -30,3 +30,22 @@ If you search for this error on the web, people recommend you to just add the fo
 This will prevent dotnet from generating any assembly info. But it has the cost of not being able to have any meta data in your project. 
 
 **Use separate folders for each project instead.**
+
+### **Microsoft decompression tool is not able to read bzip headers:**
+
+#### Description
+
+Some bzip compressors add some headers to the deflated stream in order to specify certain parameters or compression strategies that was used.
+
+The compression tool that it is bundled within .NET is not able to read any header.
+
+Searching on the internet for a solution I founded that I would need another compression library to achieve this. But luckily I end up understanding what was exactly the problem with the headers.
+
+#### Solution
+
+If there is a header in a deflated bzip stream, this header will occupy the first two bytes, then the actual compressed stream will start.
+
+By seeking to the start of the third byte we avoid the header and Microsoft compression tool will be able to read it.
+
+To gain compatibility with the two types of compressed streams (but sharing the same algorithm, bzip). We will use a try catch, trying to inflate the unmodified stream, and if it is not successful jumping to the first two bytes.
+
