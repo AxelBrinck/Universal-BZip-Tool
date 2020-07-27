@@ -11,20 +11,29 @@ namespace Program
         static void Main(string[] args)
         {
 
-            foreach(string arg in args)  
+            string inputDir = args[0];
+            string outputDir = args[1];
+
+            if (!Directory.Exists(inputDir) || !Directory.Exists(outputDir)) {
+                Console.WriteLine("Directories does not exist");
+                Console.WriteLine($"Input: {inputDir} Output: {outputDir}");
+                return;
+            }
+
+            foreach(string file in Directory.GetFiles(inputDir))
             {
-                using (FileStream input = File.OpenRead(arg))
+                using (FileStream input = File.OpenRead(file))
                 {
                     input.Seek(2, SeekOrigin.Begin);
 
-                    string newFileName = $"{arg}.json";
+                    string newFileName = $"{file}.json";
 
                     using (FileStream output = File.Create(newFileName))
                     {
                         using (DeflateStream  bzis = new DeflateStream (input, CompressionMode.Decompress))
                         {
                             bzis.CopyTo(output);
-                            Console.WriteLine("Decompressed: {0}", arg);
+                            Console.WriteLine("Decompressed: {0}", file);
                         }
                     }
                 }
