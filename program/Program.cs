@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.IO.Compression;
 using DecoderLib;
 
 namespace Program
@@ -8,9 +7,24 @@ namespace Program
     class Program
     {
 
+        private static void DisplayHelp() {
+            Console.WriteLine($"Universal BZip Tool {typeof(Program).Assembly.GetName().Version}, 27 Jul 2020, Axel Brinck.");
+            Console.WriteLine("For batch processing usage.");
+            Console.WriteLine("");
+            Console.WriteLine("USAGE:");
+            Console.WriteLine("Argument 1: Source directory. (All files must contain a bzip stream)");
+            Console.WriteLine("Argument 2: Target directory.");
+            Console.WriteLine("");
+            Console.WriteLine("EXAMPLE:");
+            Console.WriteLine("unbzip.exe compressed_files/ raw_files/");
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Program started");
+            if (args.Length == 0) {
+                DisplayHelp();
+                return;
+            }
 
             string inputDir = args[0];
             string outputDir = args[1];
@@ -34,8 +48,6 @@ namespace Program
 
                 Console.WriteLine($"Decompressed: {inputFileName}");
             }
-            
-            Console.WriteLine("Program terminated");
         }
     }
 }
