@@ -1,9 +1,13 @@
-# Deflated JSON to JSON Converter tool
+# Universal BZip Inflator Tool
 
 ## What is this?
-I have more than 300Gb of compressed raw JSON using GZIP. I need this tool inflate all of them back to raw JSON in an automated way.
+This is a command line tool wrapping a class library for a very specific usage: decompressing a stream that was deflated by using a bzip algorithm.
 
-I am also switching IDEs from Intellij Rider to Visual Studio Code for C# and JS. I feel that Visual Studio Code gives more control about every aspect in my projects, so this will also serve as a training project about working with .NET in this new IDE.
+We will see that not all the bzip streams are the same and how this tool can deal with two types of deflated bzip streams:
+- bzip stream with no header.
+- bzip stream prefixed with a two byte header.
+
+If you used the bzip compressor bundled in a Node.js environment, the resulting stream will be prefixed by a header and the compression tool from .NET will not be able to read it. Microsoft stated that there will not be a fix for this anytime soon.
 
 ## Technical Difficulties log
 
