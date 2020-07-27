@@ -25,16 +25,14 @@ namespace Program
             {
                 string outputFileName = $"{inputFileName}.json";
 
-                var input = File.OpenRead(inputFileName);
-                var output = File.Create(outputFileName);
+                using(var input = File.OpenRead(inputFileName))
+                using(var output = File.Create(outputFileName))
+                {
+                    var bzip = new BZip(input, output);
+                    bzip.InflateFromPrefixedBZip();
+                }
 
-                var bzip = new BZip(input, output);
-                bzip.InflateFromPrefixedBZip();
-
-                Console.WriteLine("Decompressed: {0}", inputFileName);
-
-                input.Close();
-                output.Close();
+                Console.WriteLine($"Decompressed: {inputFileName}");
             }
             
             Console.WriteLine("Program terminated");
