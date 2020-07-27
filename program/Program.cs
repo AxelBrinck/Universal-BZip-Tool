@@ -10,36 +10,34 @@ namespace Program
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Program started");
 
             string inputDir = args[0];
             string outputDir = args[1];
 
             if (!Directory.Exists(inputDir) || !Directory.Exists(outputDir)) {
-                Console.WriteLine("Directories does not exist");
+                Console.WriteLine("One or both directories does not exist");
                 Console.WriteLine($"Input: {inputDir} Output: {outputDir}");
                 return;
             }
 
-            foreach(string file in Directory.GetFiles(inputDir))
+            foreach(string inputFileName in Directory.GetFiles(inputDir))
             {
-                using (FileStream input = File.OpenRead(file))
-                {
-                    input.Seek(2, SeekOrigin.Begin);
+                string outputFileName = $"{inputFileName}.json";
 
-                    string newFileName = $"{file}.json";
+                var input = File.OpenRead(inputFileName);
+                var output = File.Create(outputFileName);
 
-                    using (FileStream output = File.Create(newFileName))
-                    {
-                        using (DeflateStream bzis = new DeflateStream (input, CompressionMode.Decompress))
-                        {
-                            bzis.CopyTo(output);
-                            Console.WriteLine("Decompressed: {0}", file);
-                        }
-                    }
-                }
+                var bzip = new BZip(input, output);
+                bzip.InflateFromPrefixedBZip();
+
+                Console.WriteLine("Decompressed: {0}", inputFileName);
+
+                input.Close();
+                output.Close();
             }
-
-            Console.ReadLine();
+            
+            Console.WriteLine("Program terminated");
         }
     }
 }
