@@ -1,9 +1,9 @@
 # Deflated JSON to JSON Converter tool
 
 ## What is this?
-I had more than 300Gb of compressed raw JSON using GZIP. I needed this tool inflate all of them back to raw JSON in an automated way.
+I have more than 300Gb of compressed raw JSON using GZIP. I need this tool inflate all of them back to raw JSON in an automated way.
 
-I am also switching IDEs from Intellij Rider to Visual Studio Code for C# and JS. I feel that this way I have more control about every aspect in my projects, so this will also serve as a training project.
+I am also switching IDEs from Intellij Rider to Visual Studio Code for C# and JS. I feel that Visual Studio Code gives more control about every aspect in my projects, so this will also serve as a training project about working with .NET in this new IDE.
 
 ## Technical Difficulties log
 
