@@ -9,7 +9,7 @@ namespace Program
 
         private static void DisplayHelp() {
             Console.WriteLine($"Universal BZip Tool {typeof(Program).Assembly.GetName().Version}, 27 Jul 2020, Axel Brinck.");
-            Console.WriteLine("Inflate all bzip stream types.");
+            Console.WriteLine("Can inflate all bzip stream types.");
             Console.WriteLine("Tool oriented to batch process files from a given directory.");
             Console.WriteLine("");
             Console.WriteLine("USAGE:");
@@ -23,7 +23,7 @@ namespace Program
             Console.WriteLine("unbzip.exe -deflate raw_files/ compressed_files/ .deflated");
             Console.WriteLine("unbzip.exe -help");
             Console.WriteLine("");
-            Console.WriteLine("BEHAVIOUR NOTES:");
+            Console.WriteLine("EXTENSION BEHAVIOUR NOTES:");
             Console.WriteLine("Deflating will append the specified extension to the original file names");
             Console.WriteLine("Inflating will remove the specified extension to the deflated file names");
         }
