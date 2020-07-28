@@ -120,3 +120,7 @@ By seeking to the start of the third byte we avoid the header and Microsoft comp
 
 To gain compatibility with the two types of compressed streams (but sharing the same algorithm, bzip). We will use a try catch, trying to inflate the unmodified stream, and if it is not successful jumping to the first two bytes.
 
+## Tools used
+
+- Visual Studio Code
+- .NET Core 3.1
