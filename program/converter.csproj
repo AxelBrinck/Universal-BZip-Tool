@@ -3,7 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Version>1.0.0.0</Version>
+    <Authors>Axel Brinck</Authors>
+    <Product>Universal BZip Tool</Product>
+    <Description>Encode and decode all bzip stream types</Description>
+    <RepositoryUrl>https://github.com/AxelBrinck/Universal-BZip-Tool</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
