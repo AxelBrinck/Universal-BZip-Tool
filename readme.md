@@ -9,7 +9,7 @@ We will see that not all the bzip streams are the same, and how this tool can de
 - bzip stream with no header.
 - bzip stream prefixed with a two byte header.
 
-If you used the bzip compressor bundled in a Node.js environment, the resulting stream will be prefixed by a header and the compression tool from .NET will not be able to read it. Microsoft stated that there will not be a fix for this anytime soon.
+If you used the bzip compressor bundled in a Node.js environment, the resulting stream will be prefixed by a header, and the compression tool from .NET will not be able to read it. Microsoft stated that there will not be a fix for this anytime soon.
 
 ## How to use
 
@@ -63,6 +63,8 @@ Once downloaded the zip you will see a bunch of files inside. Move those files t
 #### Known bugs
 
 + **B001**: Trying to inflate a non bzip or corrupted stream will cause an exception that is not handled and the program will suddenly exit.
++ **B002**: Specifying an extension that does not match the input file name. While deflating, X characters will disappear from the ending of the name. Where X is the amount of characters the provided extension has, including the dot.
+
 
 ## Possible features in future updates
 
