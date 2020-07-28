@@ -11,10 +11,6 @@ We will see that not all the bzip streams are the same, and how this tool can de
 
 If you used the bzip compressor bundled in a Node.js environment, the resulting stream will be prefixed by a header and the compression tool from .NET will not be able to read it. Microsoft stated that there will not be a fix for this anytime soon.
 
-## Download
-
-Downloads can be found in this repository. Check **releases**.
-
 ## How to use
 
 Use the command -help to display instructions:
@@ -39,6 +35,28 @@ Deflating will append the specified extension to the original file names
 Inflating will remove the specified extension to the deflated file names
 ```
 
+## Download
+
+Downloads can be found in this repository. Check **releases**.
+
+## Installation
+
+Once downloaded the zip you will see a bunch of files inside. Move those files to a secure place within your system and add the path to your environment variable.
+
+## Releases
+
+### **1.0.0.0** - Initial release
+
+#### Main features
+
++ Can deflate files.
++ Can inflate from non-prefixed bzip streams.
++ Can inflate from prefixed bzip streams.
+
+#### Known bugs
+
++ **B001**: Trying to inflate a non bzip or corrupted stream will cause an exception that is not handled and the program will suddenly exit.
+
 ## Possible features in future updates
 
 - Drag and drop folder to start batch processing.
@@ -47,7 +65,7 @@ Inflating will remove the specified extension to the deflated file names
 - Watch feature. *(Watch for modified/new files in a folder).*
 - Generate log file on error.
 
-*This project already served my needs, please if you like it and you feel that it could go beyond feel free to contribute.*
+*This project already served my needs, please if you like it and you feel that it could go beyond feel free to contribute as it is possible that will no longer be maintained.*
 
 ## Technical Difficulties log
 
