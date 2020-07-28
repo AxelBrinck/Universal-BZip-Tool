@@ -45,6 +45,13 @@ Once downloaded the zip you will see a bunch of files inside. Move those files t
 
 ## Releases
 
+### **1.0.0.0b** - Source code match
+
+#### Changelog
+
++ Source code attached matches the binary.
++ Platform is now specified.
+
 ### **1.0.0.0** - Initial release
 
 #### Main features
