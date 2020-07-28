@@ -2,7 +2,7 @@
 using System.IO;
 using DecoderLib;
 
-namespace Program
+namespace Unbzip
 {
     class Program
     {
