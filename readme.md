@@ -1,13 +1,53 @@
-# Universal BZip Inflator Tool
+# Universal BZip Tool
 
 ## What is this?
-This is a command line tool wrapping a class library for a very specific usage: decompressing a stream that was deflated by using a bzip algorithm.
+This is a command line tool wrapping a class library for a very specific usage: inflating or deflating a bzip stream.
 
-We will see that not all the bzip streams are the same and how this tool can deal with two types of deflated bzip streams:
+It is oriented to batch-process a folder containing the file streams.
+
+We will see that not all the bzip streams are the same, and how this tool can deal with two types of deflated bzip streams:
 - bzip stream with no header.
 - bzip stream prefixed with a two byte header.
 
 If you used the bzip compressor bundled in a Node.js environment, the resulting stream will be prefixed by a header and the compression tool from .NET will not be able to read it. Microsoft stated that there will not be a fix for this anytime soon.
+
+## Download
+
+Downloads can be found in this repository. Check **releases**.
+
+## How to use
+
+Use the command -help to display instructions:
+```
+Universal BZip Tool 1.0.0.0, 27 Jul 2020, Axel Brinck.
+Can inflate all bzip stream types.
+Tool oriented to batch process files from a given directory.
+
+USAGE:
+Commands: -inflate / -deflate / -help
+Argument 1: Source directory. (All files must contain a bzip stream)
+Argument 2: Target directory.
+Argument 3: Extension. (Specify the extension the file h)
+
+EXAMPLES:
+unbzip.exe -inflate compressed_files/ raw_files/ .deflated
+unbzip.exe -deflate raw_files/ compressed_files/ .deflated
+unbzip.exe -help
+
+EXTENSION BEHAVIOUR NOTES:
+Deflating will append the specified extension to the original file names
+Inflating will remove the specified extension to the deflated file names
+```
+
+## Possible features in future updates
+
+- Drag and drop folder to start batch processing.
+- Make the code non-procedural.
+- Parallel processing.
+- Watch feature. *(Watch for modified/new files in a folder).*
+- Generate log file on error.
+
+*This project already served my needs, please if you like it and you feel that it could go beyond feel free to contribute.*
 
 ## Technical Difficulties log
 
