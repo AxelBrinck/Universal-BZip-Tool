@@ -18,12 +18,9 @@ To gain compatibility with the two types of compressed streams (but sharing the 
 
 ### Package version
 
-- Package Manager: `Install-Package decoder -Version 1.0.0`
-- .NET CLI: `dotnet add package decoder --version 1.0.0`
-- Package Reference: `<PackageReference Include="decoder" Version="1.0.0" />`
-- Paket CLI: `paket add decoder --version 1.0.0`
+Please see the package releases located in this repository.
 
-When you have the package in your project go to the namespace **Unbzip**, and use the object BZip
+When you have the package in your project go to the namespace **Unbzip**, and use the object **BZip** to inflate/deflate streams.
 
 ### Standalone version
 
