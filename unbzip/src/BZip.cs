@@ -1,7 +1,7 @@
 using System.IO;
 using System.IO.Compression;
 
-namespace DecoderLib
+namespace Unbzip
 {
     public class BZip
     {

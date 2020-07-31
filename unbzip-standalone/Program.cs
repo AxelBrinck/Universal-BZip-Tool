@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using DecoderLib;
+using Unbzip;
 
 namespace Unbzip
 {
