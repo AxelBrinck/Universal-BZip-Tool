@@ -4,15 +4,15 @@
 
 ### Description
 
-This is a standalone command line tool and a NuGet package for a very specific usage: inflating or deflating any bzip stream.
+This is a standalone command-line tool and a NuGet package for a very specific usage: inflating or deflating any bzip stream.
 
 If you used the bzip compressor bundled in a Node.js environment, the resulting stream will be prefixed by a header, and the compression tool from .NET will not be able to read it. Microsoft stated that there will not be a fix for this anytime soon.
 
 If there is a header in a deflated bzip stream, this header will occupy the first two bytes, then the actual compressed stream will start.
 
-So this project provides the ability to perform the following thing: By seeking to the start of the third byte we avoid the header and Microsoft compression tool will be able to read it.
+So this project provides the ability to perform the following thing: By seeking the start of the third byte we avoid the header and the Microsoft compression tool will be able to read it.
 
-To gain compatibility with the two types of compressed streams (but sharing the same algorithm, bzip). We will use a try catch, trying to inflate the unmodified stream, and if it is not successful jumping to the first two bytes.
+To gain compatibility with the two types of compressed streams (but sharing the same algorithm, bzip). We will use a try-catch, trying to inflate the unmodified stream, and if it is not successful jumping to the first two bytes.
 
 ## How to use
 
@@ -53,4 +53,4 @@ Inflating will remove the specified extension to the deflated file names
 
 ## Contributions
 
-Please if you feel that this project is missing something let me know! Im a little programmer here on GitHub and I want to learn from my mistakes! Thank you very much! :heart:
+Please if you feel that this project is missing something let me know! I'm a little programmer here on GitHub and I want to learn from my mistakes! Thank you very much! :heart:
