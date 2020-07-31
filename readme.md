@@ -10,7 +10,7 @@ If you used the bzip compressor bundled in a Node.js environment, the resulting 
 
 If there is a header in a deflated bzip stream, this header will occupy the first two bytes, then the actual compressed stream will start.
 
-So this project provides the ability to perform the following thing: By seeking the start of the third byte we avoid the header and the Microsoft compression tool will be able to read it.
+So this project provides the ability to perform the following thing: By seeking the start of the third byte we avoid the header and the **Microsoft compression tool will be able to read it**.
 
 To gain compatibility with the two types of compressed streams (but sharing the same algorithm, bzip). We will use a try-catch, trying to inflate the unmodified stream, and if it is not successful jumping to the first two bytes.
 
